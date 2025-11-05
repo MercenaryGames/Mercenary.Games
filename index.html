@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mercenary Games Studio</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Orbitron', sans-serif;
+    }
+
+    body {
+      background: radial-gradient(circle at top, #0a0a0f, #050509);
+      color: #fff;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      overflow-x: hidden;
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    header h1 {
+      font-size: 3rem;
+      letter-spacing: 2px;
+      color: #00ffcc;
+      text-shadow: 0 0 10px #00ffcc, 0 0 30px #009977;
+    }
+
+    .game-grid {
+      display: flex;
+      justify-content: center;
+      gap: 60px;
+      flex-wrap: wrap;
+    }
+
+    .game-banner {
+      position: relative;
+      width: 350px;
+      height: 200px;
+      border-radius: 12px;
+      overflow: hidden;
+      cursor: pointer;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      background-size: cover;
+      background-position: center;
+      border: 2px solid #00ffcc33;
+    }
+
+    .game-banner:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 30px #00ffcc55;
+      border-color: #00ffccaa;
+    }
+
+    .game-banner::after {
+      content: attr(data-title);
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      background: rgba(0, 0, 0, 0.6);
+      text-align: center;
+      padding: 10px 0;
+      font-size: 1.2rem;
+      color: #00ffcc;
+      letter-spacing: 1px;
+    }
+
+    .wrap {
+      max-width: 1100px;
+      margin: 60px auto;
+      padding: 24px;
+      color: #fff;
+    }
+
+    .card {
+      background: rgba(255,255,255,0.05);
+      border-radius: 12px;
+      padding: 20px;
+      box-shadow: 0 0 20px rgba(0,255,204,0.15);
+      margin-bottom: 20px;
+    }
+
+    .btn {
+      background: linear-gradient(90deg,#00ffcc,#009977);
+      color: #000;
+      padding: 10px 16px;
+      border-radius: 8px;
+      border: none;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .btn:hover {
+      box-shadow: 0 0 15px #00ffcc88;
+      transform: scale(1.05);
+    }
+
+    .btn.ghost {
+      background: transparent;
+      border: 1px solid #00ffccaa;
+      color: #00ffcc;
+    }
+
+    .features {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .feature {
+      flex: 1 1 250px;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid #00ffcc22;
+      border-radius: 10px;
+      padding: 12px;
+      box-shadow: 0 0 10px #00ffcc22;
+    }
+
+    footer {
+      margin-top: 60px;
+      font-size: 0.9rem;
+      color: #888;
+      text-align: center;
+    }
+
+    .socials img {
+      width: 24px;
+      height: 24px;
+      margin: 0 6px;
+      filter: brightness(0) invert(1);
+      opacity: 0.7;
+      transition: opacity 0.3s;
+    }
+
+    .socials img:hover {
+      opacity: 1;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>🔥 Mercenary Games 🔥</h1>
+  </header>
+
+  <div class="game-grid">
+    <a href="https://mercenarygame.vercel.app" target="_blank">
+      <div class="game-banner" data-title="Mercenary" style="background-image: url('/gfx/mercenary.jpg');"></div>
+    </a>
+
+    <a href="#" target="_blank">
+      <div class="game-banner" data-title="New Game Demo" style="background-image: url('/gfx/newgame.jpg');"></div>
+    </a>
+  </div>
+
+  <div class="wrap">
+    <nav style="text-align:center;margin:30px 0;">
+      <a href="#features" style="margin:0 10px;color:#00ffcc;">Features</a>
+      <a href="#market" style="margin:0 10px;color:#00ffcc;">Marketplace</a>
+      <a href="#docs" style="margin:0 10px;color:#00ffcc;">Docs</a>
+    </nav>
+
+    <section class="hero">
+      <div class="card">
+        <h2 style="margin-bottom:8px;color:#00ffcc;">Join the Battle — Web3 Style</h2>
+        <p>Fight in fast-paced matches, collect NFT weapons, and earn MGOLD tokens on Solana and BSC. Cross-platform gameplay with on-chain progression.</p>
+        <div style="display:flex;gap:12px;margin-top:14px">
+          <button class="btn" onclick="location.href='https://mercenary.games/play'">Play Now</button>
+          <button class="btn ghost" onclick="location.href='https://mercenary.games/market'">Marketplace</button>
+        </div>
+      </div>
+
+      <div class="features" id="features">
+        <div class="feature">
+          <h4 style="color:#00ffcc;">Competitive PvP</h4>
+          <p>Ranked ladders and fast matchmaking across regions.</p>
+        </div>
+        <div class="feature">
+          <h4 style="color:#00ffcc;">Earn MGOLD</h4>
+          <p>Win battles, craft NFTs, and trade your loot.</p>
+        </div>
+        <div class="feature">
+          <h4 style="color:#00ffcc;">Cross-Platform</h4>
+          <p>Play seamlessly on web, mobile, or PC.</p>
+        </div>
+      </div>
+
+      <div class="card" style="margin-top:20px;">
+        <h3 style="color:#00ffcc;">Trailer</h3>
+        <div class="trailer">
+          <iframe src="https://www.youtube.com/embed/" title="Mercenary Games Trailer" allowfullscreen style="width:100%;height:300px;border-radius:10px;border:none;margin-top:10px;"></iframe>
+        </div>
+        <div style="display:flex;gap:8px;margin-top:12px">
+          <a class="btn" href="https://mercenary.games/whitepaper.pdf" target="_blank">Whitepaper</a>
+          <a class="btn ghost" href="https://mercenary.games/roadmap" target="_blank">Roadmap</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="market" style="margin-top:24px">
+      <div class="card">
+        <h3 style="margin-top:0;color:#00ffcc;">Marketplace Preview</h3>
+        <p>Collect and trade rare mercenaries and weapons.</p>
+        <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:10px">
+          <div style="background:rgba(255,255,255,0.05);padding:10px;border-radius:10px;width:220px;border:1px solid #00ffcc22;">
+            <img src="/gfx/mercenary_vargas.jpg" style="width:100%;border-radius:8px;height:120px;object-fit:cover" />
+            <div style="margin-top:8px;font-weight:600">Mercenary Vargas</div>
+            <div style="color:#00ffcc;font-size:13px">Epic · 120 MGOLD</div>
+          </div>
+          <div style="background:rgba(255,255,255,0.05);padding:10px;border-radius:10px;width:220px;border:1px solid #00ffcc22;">
+            <img src="/gfx/thunder_axe.jpg" style="width:100%;border-radius:8px;height:120px;object-fit:cover" />
+            <div style="margin-top:8px;font-weight:600">Weapon Thunder Axe</div>
+            <div style="color:#00ffcc;font-size:13px">Legendary · 420 MGOLD</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div>© <span id="year"></span> Mercenary Games — All Rights Reserved</div>
+      <div class="socials">
+        <a href="https://x.com/MercenaryByIllu" target="_blank"><img src="/gfx/x_logo.svg" alt="X"></a>
+        <a href="https://t.me/MercenaryGames" target="_blank"><img src="/gfx/telegram_logo.svg" alt="Telegram"></a>
+        <a href="https://coinmarketcap.com/currencies/mercenary/" target="_blank"><img src="/gfx/coinmarketcap.svg" alt="CoinMarketCap"></a>
+        <a href="https://cryptorank.io/price/mercenary" target="_blank"><img src="/gfx/cryptorank.ico" alt="CryptoRank"></a>
+        <a href="https://www.bitdegree.org/cryptocurrency-prices/mercenary-mgold-price" target="_blank"><img src="/gfx/bitdegree.png" alt="BitDegree"></a>
+        <a href="https://finance.yahoo.com/quote/MGOLD-USD/" target="_blank"><img src="/gfx/yahoo.png" alt="Yahoo Finance"></a>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
